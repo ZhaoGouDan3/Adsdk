@@ -30,7 +30,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:$agp_version1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0"
         classpath "com.alibaba:arouter-register:1.0.2"
-
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         // 垃圾代码生成插件
         // classpath "com.github.qq549631030:android-junk-code:1.2.3"
     }
@@ -53,9 +53,6 @@ allprojects {
         }
         maven { url 'https://maven.aliyun.com/repository/public' }
         mavenCentral()
-        flatDir {
-            dirs 'libs'
-        }
         //        荣耀
         maven { url 'https://developer.hihonor.com/repo' }
 //        adset

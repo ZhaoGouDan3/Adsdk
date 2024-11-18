@@ -11,12 +11,12 @@ plugins {
 
 android {
 
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.yiyou.sdk"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 26
         versionName "1.0.26"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -105,8 +105,5 @@ dependencies {
 
 repositories {
     mavenCentral()
-    flatDir {
-        dirs 'libs'
-    }
 }
 

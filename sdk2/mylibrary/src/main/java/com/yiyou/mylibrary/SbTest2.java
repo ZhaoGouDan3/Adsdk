@@ -3,9 +3,6 @@ package com.yiyou.mylibrary;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.anythink.core.api.ATAdConst;
-import com.anythink.core.api.ATSDK;
-import com.baidu.mobads.proxy.BuildConfig;
 
 public class SbTest2 {
     public static void test(Context context){

@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
 android {
     compileSdk 34
@@ -26,7 +27,17 @@ android {
         exclude 'META-INF/DEPENDENCIES'
     }
 }
-
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication){
+                groupId='com.yiyou.sdk'
+                artifactId='initCode'
+                version='1.0.5'
+            }
+        }
+    }
+}
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.2'

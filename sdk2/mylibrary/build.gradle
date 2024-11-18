@@ -16,10 +16,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String","code","\"FUN\"")
-        }
-        debug{
-            buildConfigField("String","code","\"FUN\"")
         }
     }
     compileOptions {
@@ -61,4 +57,5 @@ dependencies {
     }
 
     implementation 'io.github.DigitalUnion:du-pco-java-sdk:1.0.4'
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 }

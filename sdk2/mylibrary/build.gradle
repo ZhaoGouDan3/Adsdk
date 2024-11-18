@@ -67,5 +67,5 @@ dependencies {
     }
 
     implementation 'io.github.DigitalUnion:du-pco-java-sdk:1.0.4'
-    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+//    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 }

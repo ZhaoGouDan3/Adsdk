@@ -1,5 +1,71 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.android.library) apply false
+buildscript {
+    ext {
+        agp_version = '7.3.3'
+        agp_version1 = '7.2.2'
+    }
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven {
+            url "https://jfrog.anythinktech.com/artifactory/debugger"
+        }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        //火山引擎maven仓库地址
+        maven { url 'https://artifact.bytedance.com/repository/Volcengine/' }
+//穿山甲maven仓库地址
+        maven { url 'https://artifact.bytedance.com/repository/pangle' }
+        maven {
+            url "https://jfrog.anythinktech.com/artifactory/overseas_sdk"
+        }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://developer.hihonor.com/repo' }
+        maven {
+            allowInsecureProtocol = true
+            url "http://maven.shenshiads.com/nexus/repository/adset/"
+        }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$agp_version1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0"
+        classpath "com.alibaba:arouter-register:1.0.2"
+
+        // 垃圾代码生成插件
+        // classpath "com.github.qq549631030:android-junk-code:1.2.3"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        maven { url 'https://public-n3.advai.net/repository/maven-releases/' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'https://jitpack.io' }
+        maven {
+            url "https://jfrog.anythinktech.com/artifactory/debugger"
+        }
+        maven { url 'https://artifact.bytedance.com/repository/Volcengine/' }
+//穿山甲maven仓库地址
+        maven { url 'https://artifact.bytedance.com/repository/pangle' }
+        maven {
+            url "https://jfrog.anythinktech.com/artifactory/overseas_sdk"
+        }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+        //        荣耀
+        maven { url 'https://developer.hihonor.com/repo' }
+//        adset
+        maven {
+            allowInsecureProtocol = true
+            url "http://maven.shenshiads.com/nexus/repository/adset/"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

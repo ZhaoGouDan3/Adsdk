@@ -1,46 +1,64 @@
 plugins {
-    alias(libs.plugins.android.library)
-    id 'maven-publish'
+    id 'com.android.library'
 }
 
 android {
-    namespace 'com.yiyou.mylibrary'
     compileSdk 34
 
     defaultConfig {
-        minSdk 24
+        minSdkVersion 24
+        targetSdkVersion 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String","code","\"FUN\"")
+        }
+        debug{
+            buildConfigField("String","code","\"FUN\"")
         }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-}
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                groupId = 'com.yiyou.sdk'
-                artifactId = 'adSdk'
-                version = '1.0.0'
-            }
-        }
+    packagingOptions {
+        // 排除指定路径下的文件
+        exclude 'META-INF/DEPENDENCIES'
     }
 }
+
 dependencies {
 
-    implementation libs.appcompat
-    implementation libs.material
-    testImplementation libs.junit
-    androidTestImplementation libs.ext.junit
-    androidTestImplementation libs.espresso.core
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
+
+    //3.0这个是基于androidx的
+    implementation 'com.trello.rxlifecycle3:rxlifecycle:3.0.0'
+    implementation 'com.trello.rxlifecycle3:rxlifecycle-android:3.0.0'
+    implementation 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
+
+    //rx管理View的生命周期
+    api('com.trello.rxlifecycle3:rxlifecycle:3.0.0') {
+        exclude group: 'com.android.support'
+    }
+    api('com.trello.rxlifecycle3:rxlifecycle-components:3.0.0') {
+        exclude group: 'com.android.support'
+    }
+
+    implementation 'io.github.DigitalUnion:du-pco-java-sdk:1.0.4'
 }

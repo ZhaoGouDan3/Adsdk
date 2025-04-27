@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
 }
 android {
     compileSdk 34
@@ -27,17 +26,6 @@ android {
         exclude 'META-INF/DEPENDENCIES'
     }
 }
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication){
-                groupId='com.yiyou.sdk'
-                artifactId='initCode'
-                version='1.0.5'
-            }
-        }
-    }
-}
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.2'
@@ -46,26 +34,4 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
-
-    //3.0这个是基于androidx的
-    implementation 'com.trello.rxlifecycle3:rxlifecycle:3.0.0'
-    implementation 'com.trello.rxlifecycle3:rxlifecycle-android:3.0.0'
-    implementation 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
-
-    //rx管理View的生命周期
-    api('com.trello.rxlifecycle3:rxlifecycle:3.0.0') {
-        exclude group: 'com.android.support'
-    }
-    api('com.trello.rxlifecycle3:rxlifecycle-components:3.0.0') {
-        exclude group: 'com.android.support'
-    }
-
-    implementation 'io.github.DigitalUnion:du-pco-java-sdk:1.0.4'
-//    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 }

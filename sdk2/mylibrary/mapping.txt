@@ -1,0 +1,14 @@
+# compiler: R8
+# compiler_version: 3.2.74
+# common_typos_disable
+# {"id":"com.android.tools.r8.mapping","version":"2.0"}
+# pg_map_id: 0b6ebfd
+# pg_map_hash: SHA-256 0b6ebfd3c9b1b11e11880b6520c7bd96df60b2b9f878d95acfee46b5c2e5b5da
+com.yiyou.mylibrary.BuildConfig -> a.a:
+    boolean DEBUG -> a
+    java.lang.String BUILD_TYPE -> c
+    java.lang.String LIBRARY_PACKAGE_NAME -> b
+    1:1:void <init>():6:6 -> <init>
+com.yiyou.mylibrary.TakuManager -> a.b:
+    1:1:void <init>():10:10 -> <init>
+    1:13:void init(android.content.Context):16:28 -> a
